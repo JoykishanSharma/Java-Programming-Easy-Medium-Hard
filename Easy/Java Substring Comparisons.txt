@@ -1,0 +1,42 @@
+/*Output Format
+
+Return the respective lexicographically smallest and largest substrings as a single newline-separated string.
+
+Sample Input 0
+
+welcometojava
+3
+Sample Output 0
+
+ava
+wel */
+
+
+public static String getSmallestAndLargest(String s, int k) {
+        String smallest = "";
+        String largest = "";
+        
+        java.util.ArrayList<String> subs = new java.util.ArrayList<String>();
+
+        for(int i=0; i<s.length(); i++){
+            try{
+                String str = s.substring(i,i+k);
+                if(str.length() == k){
+                    subs.add(str);
+                }
+            }
+            catch(Exception e)
+            {
+                //Do Nothing
+            }
+        }
+        
+        
+        java.util.SortedSet s1 = new java.util.TreeSet(subs);
+        
+        smallest = s1.first().toString();
+        largest = s1.last().toString();
+        
+        return smallest + "\n" + largest;
+    }
+

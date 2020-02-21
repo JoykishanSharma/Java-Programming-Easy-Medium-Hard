@@ -1,0 +1,66 @@
+/*Sample Input
+
+java 100
+cpp 65
+python 50
+Sample Output
+
+================================
+java           100 
+cpp            065 
+python         050 
+================================ */
+
+import java.util.Scanner;
+import java.util.*;
+import java.lang.String;
+
+public class Solution {
+
+    public static void main(String[] args) {
+
+            String number = "";
+        String output = "";
+            Scanner sc=new Scanner(System.in);
+            System.out.println("================================");
+            for(int i=0;i<3;i++)
+            {
+                String s1=sc.next();
+                int x=sc.nextInt();
+                
+                int xLength = String.valueOf(x).length();
+                
+                if(xLength == 2){
+                    number = "0" + Integer.toString(x);
+                }
+                else if(xLength == 1){
+                    number = "00" + Integer.toString(x);
+                }
+                else{
+                    number = Integer.toString(x);
+                }
+                
+                int strLen = s1.length();
+                int spacing = 15-strLen;
+                
+                output = output + s1;
+                for(int j=0; j<spacing; j++){
+                    output =output + " ";
+                }
+                
+                output = output + number;
+                
+                System.out.println(output);
+                output = "";
+                spacing = 0;
+                strLen = 0;
+                xLength = 0;
+                number = "";
+            }
+            System.out.println("================================");
+
+    }
+}
+
+
+

@@ -1,0 +1,56 @@
+/*Sample Input 0
+
+anagram
+margana
+
+Sample Output 0
+
+Anagrams*/
+
+
+
+static boolean isAnagram(String a, String b) {
+        int countA=0;
+        int countB=0;
+        int count=0;
+        
+        for(int i=0; i<a.length(); i++){
+            
+            char alpha = a.charAt(i);
+            char alphaUp = java.lang.Character.toUpperCase(alpha);
+            char alphaLow = java.lang.Character.toLowerCase(alpha);
+            
+            for(int j=0; j<a.length(); j++){
+                if (a.charAt(j) == alphaUp || a.charAt(j) == alphaLow){
+                    countA++;
+                } 
+            }
+            
+            for(int k=0; k<b.length(); k++){
+                if (b.charAt(k) == alphaUp || b.charAt(k) == alphaLow){
+                    countB++;
+                } 
+            }
+        
+            if(countA == countB){
+                //Do nothing
+            }
+            else{
+                count++;
+            }
+      
+            countA=0;
+            countB=0;
+        }
+        
+        if(count == 0 && (a.length() == b.length())){
+            return true;
+        }
+        else if(count !=0 && (a.length() != b.length())){
+            return false;
+        }
+        else {
+            return false;
+        }
+    }
+

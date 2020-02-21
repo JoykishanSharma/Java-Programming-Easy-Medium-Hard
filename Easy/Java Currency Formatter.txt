@@ -1,0 +1,54 @@
+/* Sample Input
+
+12324.134
+Sample Output
+
+US: $12,324.13
+India: Rs.12,324.13
+China: (China Currency)12,324.13
+France: 12 324,13 € */
+
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+import java.text.NumberFormat.*;
+import java.util.Locale;
+
+public class Solution {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double payment = scanner.nextDouble();
+        scanner.close();
+
+        //India Payment
+        Locale indian = new Locale("en", "IN");
+        NumberFormat indianFormat = NumberFormat.getCurrencyInstance(indian);
+        String india = indianFormat.format(payment);
+
+        //America Payment
+        Locale american = new Locale("en","US");
+        NumberFormat americanFormat = NumberFormat.getCurrencyInstance(american);
+        String us = americanFormat.format(payment);
+        
+        //China Payment
+        Locale chinese = new Locale("zh", "CN");
+        NumberFormat chineseFormat = NumberFormat.getCurrencyInstance(chinese);
+        String china = chineseFormat.format(payment);
+
+        //France Payment
+        //Locale franceLocale = new Locale();
+        
+        NumberFormat franceFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
+        String france = franceFormat.format(payment);
+        
+        System.out.println("US: " + us);
+        System.out.println("India: " + india);
+        System.out.println("China: " + china);
+        System.out.println("France: " + france);
+    }
+}
+
